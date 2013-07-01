@@ -1,0 +1,18 @@
+in spawnList is [point, type, path, delay]
+
+Commands
+accel
+2,3,4
+1,0,5
+8,7,6
+
+fire
+-2,-3,-4
+-1,_,-5
+-8,-7,-6
+
+Type
+image,
+damage, bulletType, fireRate,
+maxXspeed, maxYSpeed, accel, friction,
+shieldLife, shieldRegen, minShield, sheildColor

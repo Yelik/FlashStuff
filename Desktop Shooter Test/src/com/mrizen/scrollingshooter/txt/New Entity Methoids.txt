@@ -1,0 +1,29 @@
+		override protected function hasFriction():Boolean
+		{
+			return null;
+		}
+		
+		override protected function getImage():Bitmap
+		{
+			return null;
+		}
+		
+		override protected function getMaxXSpeed():int
+		{
+			return 0;
+		}
+		
+		override protected function getMaxYSpeed():int
+		{
+			return 0;
+		}
+		
+		override protected function getAccel():Number
+		{
+			return 0;
+		}
+		
+		override protected function getStays():Array
+		{
+			return [null, null];
+		}

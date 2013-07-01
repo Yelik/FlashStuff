@@ -1,0 +1,37 @@
+MapGenerator
+	prepMapGen
+		objects, the objects that are part of generation
+		objectWeights, the weight value of the object durring generation
+		^corisponds to the object at the same location in objects array
+		
+	interpretID
+		ID, the ID of the node randomly selected
+		^if the ID is a node type id node = new that node type
+		
+Node
+	IDs
+		Id must be an origonal uint that is defined in Node as a public static const
+
+Behavior
+	Booleans
+		drawnNode, draws the node
+		links, finds nearby
+		linkTo, can be found by nodes that link
+		hasLife, uses life
+		dies, can lose all life
+		lives, can become alive
+
+	Uints
+		range, range of objects linked to
+
+	Template
+		override protected function setBehavior():void
+		{
+			drawnNode = 
+			links = 
+			linkTo = 
+			range = 
+			hasLife = 
+			dies = 
+			lives = 
+		}

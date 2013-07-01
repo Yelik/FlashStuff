@@ -1,0 +1,49 @@
+MapGenerator
+	prepMapGen
+		objects, the objects that are part of generation
+		objectWeights, the weight value of the object durring generation
+		^corisponds to the object at the same location in objects array
+		
+	interpretID
+		ID, the ID of the node randomly selected
+		^if the ID is a node type id node = new that node type
+
+	Template
+		override protected function prepMapGen():void
+		{
+			objects = [Node.nodeID];
+			objectWeights = [1];
+		}
+		
+		override protected function interpretID(ID:uint,currentX:uint,currentY:uint,map:Array):Node
+		{
+			var node:Node;
+			
+			if (ID == Node.nodeID) {
+				node = new Node(currentX, currentY, map);
+			}
+			
+			return node;
+		}
+		
+Node
+	IDs
+		Id must be an origonal uint that is defined in Node as a public static const
+
+Behavior
+	Booleans
+		drawnNode, draws the node
+		links, finds nearby
+		linkTo, can be found by nodes that link
+
+	Uints
+		range, range of objects linked to
+
+	Template
+		override protected function setBehavior():void
+		{
+			drawnNode
+			links
+			linkTo
+			range
+		}
