@@ -16,7 +16,7 @@ package
 			this.maxLife = maxLife;
 			this.tileWidth = Main.i.stage.stageWidth / width;
 			this.tileHeight = Main.i.stage.stageHeight / height;
-			this.color = 0x5500FF;
+			this.color = 0x55FFFF;
 			
 			this.map = new Vector.<Tile>;
 			

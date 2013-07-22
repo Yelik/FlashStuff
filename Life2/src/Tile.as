@@ -21,16 +21,16 @@ package
 			this.color = 0;
 			this.life = 0;
 			
-			/*if (mapX == 0 || mapX == map.width - 1) {
-			   life = map.maxLife;					V 2, 4
-			 }*/
+			if (mapX == 0 || mapX == map.width - 1) {
+			   life = map.maxLife;					//V 2, 4
+			}
 			 
-			//life = mapX / map.maxLife; 			V3
+			//life = mapX / map.maxLife; 			
 			
-			if (mapX == 0 || mapX == map.width - 1)
+			/*if (mapX == 50 && mapY % 5 == 0)
 			{
 				life = map.maxLife;
-			}
+			}*/
 			
 			neighbors = new Vector.<Tile>;
 			
