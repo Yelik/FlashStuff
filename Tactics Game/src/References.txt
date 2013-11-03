@@ -1,0 +1,16 @@
+Adbrivations
+	Reg = regiment
+	turn = true = player 2, false = player 1
+	
+Classes
+	Main
+		Main Class
+	
+	Game
+		Represents a battle, the contructor parameters decide the settings of the battle, coordiantes the battle, contains map
+		
+	Tile
+		Tile Class
+		
+	Reg
+		Regiment Class
