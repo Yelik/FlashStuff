@@ -29,10 +29,10 @@ package
 				{
 					for (var y:int = 0; y < mapData.height; y++)
 					{
-						//mapData.setPixel(x, y, (x * 100) / y << i);
+						mapData.setPixel(x, y, (x * 100) / y << i);
 						//mapData.setPixel(y, x, (x * 100) / y << i);
 						
-						mapData.setPixel(x, y, (x % y) * (y % x) << i);
+						//mapData.setPixel(x, y, (x % y) * (y % x) << i);
 						
 						//mapData.setPixel(x, y, (x * y) - (x + y) << i % 24);
 					}

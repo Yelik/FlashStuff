@@ -70,6 +70,11 @@ package
 			}
 		}
 		
+		public function getTileTypeAt(local:Array):int
+		{
+			return getTileAt(local).getType();
+		}
+		
 		private function setTileTypeAt(local:Array, type:int):void
 		{
 			getTileAt(local).setType(type);

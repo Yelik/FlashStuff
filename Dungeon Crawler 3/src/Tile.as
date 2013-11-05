@@ -20,12 +20,12 @@ package
 			setType(0);
 		}
 		
-		private function setLocal(local:Array):void 
+		private function setLocal(local:Array):void
 		{
 			this.local = local;
 		}
 		
-		private function setMap(map:Map):void 
+		private function setMap(map:Map):void
 		{
 			this.map = map;
 		}
@@ -51,14 +51,19 @@ package
 			return image;
 		}
 		
-		public function getTileSize():uint 
+		public function getTileSize():uint
 		{
 			return getMap().getTileSize();
 		}
 		
-		public function setType(type:int):void 
+		public function setType(type:int):void
 		{
 			this.type = type;
+		}
+		
+		public function getType():int
+		{
+			return type;
 		}
 		
 		private function getMap():Map

@@ -31,7 +31,7 @@ package
 			rooms = new Vector.<Vector.<Array>>;
 			rooms.push(new Vector.<Array>)
 			rooms[0].push(center);
-			for (var i:int = 0; i < 5000000; i++)
+			for (var i:int = 0; i < 10000000; i++)
 			{
 				growRoom(0);
 			}

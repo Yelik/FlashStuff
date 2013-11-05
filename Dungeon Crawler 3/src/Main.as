@@ -26,6 +26,7 @@ package
 			actGame.setMap(new Map(actGame, 10, [10, 10]));
 			actGame.getMap().genMap(0);
 			actGame.load();
+			trace(actGame.getMap().getTileTypeAt([2, 3]));
 		}
 		
 		private function loadGame(game:Game):void
