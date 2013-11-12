@@ -58,5 +58,8 @@ package
 			
 			return image;
 		}
+		
+		private function getTileSize():int
+		[
 	}
 }
