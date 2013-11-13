@@ -46,20 +46,24 @@ package
 			return id;
 		}
 		
-		private function draw(id:int):Sprite
+		public function draw(id:int):Sprite
 		{
 			var image:Sprite = new Sprite;
 			
 			if (id == idPlayer)
 			{
 				image.graphics.lineStyle(1, 0);
-				image.graphics.moveTo(actGame.getMap().getTileSize()
+				image.graphics.moveTo(getTileSize() * 0.2, getTileSize() * 0.8);
+				image.graphics.lineTo(getTileSize() * 0.5, getTileSize() * 0.5);
+				image.graphics.lineTo(getTileSize() * 0.8, getTileSize() * 0.8);
 			}
 			
 			return image;
 		}
 		
 		private function getTileSize():int
-		[
+		{
+			return actGame.getMap().getTileSize();
+		}
 	}
 }

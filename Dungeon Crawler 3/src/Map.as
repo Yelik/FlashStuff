@@ -99,5 +99,10 @@ package
 		{
 			return mapSize;
 		}
+		
+		public function getGame():Game
+		{
+			return game;
+		}
 	}
 }

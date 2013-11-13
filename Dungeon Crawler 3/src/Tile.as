@@ -65,8 +65,8 @@ package
 		{
 			return type;
 		}
-		
-		private function getMap():Map
+
+		public function getMap():Map
 		{
 			return map;
 		}

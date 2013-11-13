@@ -46,5 +46,10 @@ package
 		{
 			return map;
 		}
+		
+		public function getMain():Main
+		{
+			return main;
+		}
 	}
 }

@@ -22,10 +22,12 @@ package
 		
 		override public function drawImage():Sprite 
 		{
-			var image:Sprite = super.drawImage();
-			image.graphics.lineStyle(1);
-			image.graphics.drawCircle(0, 0, getTileSize());
-			return image;
+			return getMain().draw(getMain().idPlayer);
+		}
+		
+		private function getMain():Main
+		{
+			return getTile().getMap().getGame().getMain();
 		}
 		
 		private function getTileSize():uint 
