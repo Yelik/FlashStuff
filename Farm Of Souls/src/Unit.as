@@ -16,7 +16,7 @@ package
 			this.main = main;
 			this.graphics.lineStyle(1);
 			this.graphics.lineTo(5, 5);
-			trace("f")
+			trace(this, this.pos)
 		}
 		
 	}

@@ -24,6 +24,7 @@ package
 			{
 				this.tile = tile;
 				tile.addChild(this);
+				tile.sgetBuild(this);
 			}
 			return this.tile;
 		}
