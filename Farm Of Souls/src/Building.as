@@ -15,7 +15,7 @@ package
 			sgetTile(tile);
 			this.graphics.lineStyle(1);
 			this.graphics.beginFill(0x0000FF);
-			this.graphics.drawRect(tile.width / 4, tile.height / 4, tile.width / 2, tile.height / 2);
+			this.graphics.drawRect(getTileSize() / 4, getTileSize() / 4, getTileSize() / 2, getTileSize() / 2);
 		}
 		
 		public function sgetTile(tile:Tile = null):Tile
@@ -40,6 +40,11 @@ package
 		private function getMain():Main
 		{
 			return sgetTile().sgetMain();
+		}
+		
+		private function getTileSize():int
+		{
+			return getMain().getTileSize();
 		}
 	}
 }

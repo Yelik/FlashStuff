@@ -21,7 +21,7 @@ package
 			addChild(land);
 			land.graphics.beginFill(0x00FF00);
 			land.graphics.lineStyle(1);
-			land.graphics.drawRect(0, 0, 40, 40);
+			land.graphics.drawRect(0, 0, main.getTileSize(), main.getTileSize());
 		}
 		
 		public function sgetBuild(build:Building = null):Building

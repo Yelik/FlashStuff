@@ -31,7 +31,7 @@ package
 			{
 				tiles.push(new Tile(this, i));
 				addChild(tiles[i]);
-				tiles[i].x = i * tiles[i].width;
+				tiles[i].x = i * getTileSize();
 				tiles[i].y = 100;
 			}
 			
@@ -45,20 +45,31 @@ package
 			{
 				tile.tick();
 			}
+			for each (var unit:Unit in units)
+			{
+				unit.tick();
+			}
 		}
 		
 		public function sgetUnits(units:Vector.<Unit> = null):Vector.<Unit>
 		{
-			if (units != null) {
+			if (units != null)
+			{
 				this.units = units
 			}
 			return this.units;
 		}
 		
-		public function addUnit(unit:Unit):void 
+		public function addUnit(unit:Unit):void
 		{
 			units.push(unit);
 			addChild(unit);
+			unit.y = 60;
+		}
+		
+		public function getTileSize():int
+		{
+			return 40;
 		}
 	}
 }

@@ -1,19 +1,20 @@
-package  
+package
 {
+	
 	/**
 	 * ...
 	 * @author Insuferior
 	 */
-	public class Resource 
+	public class Resource
 	{
 		private var tile:Tile;
 		
-		public function Resource(tile:Tile) 
+		public function Resource(tile:Tile)
 		{
 			sgetTile(tile);
 		}
 		
-				public function sgetTile(tile:Tile = null):Tile
+		public function sgetTile(tile:Tile = null):Tile
 		{
 			if (tile != null)
 			{
