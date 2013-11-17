@@ -10,10 +10,16 @@ package
 		
 		public function Resource(tile:Tile) 
 		{
-			this.tile = tile;
-			
+			sgetTile(tile);
 		}
 		
+				public function sgetTile(tile:Tile = null):Tile
+		{
+			if (tile != null)
+			{
+				this.tile = tile;
+			}
+			return this.tile;
+		}
 	}
-
 }

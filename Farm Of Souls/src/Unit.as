@@ -1,10 +1,11 @@
 package  
 {
+	import flash.display.Sprite;
 	/**
 	 * ...
 	 * @author Insuferior
 	 */
-	public class Unit 
+	public class Unit extends Sprite
 	{
 		private var main:Main;
 		private var pos:int;
@@ -13,7 +14,9 @@ package
 		{
 			this.pos = pos;
 			this.main = main;
-			
+			this.graphics.lineStyle(1);
+			this.graphics.lineTo(5, 5);
+			trace("f")
 		}
 		
 	}
