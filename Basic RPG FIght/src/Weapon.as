@@ -10,12 +10,11 @@ package
 		private var strRatio:Number;
 		private var dexRatio:Number;
 		
-		public function Weapon(baseDmg:int, strRatio:Number, dexRatio:Number) 
+		public function Weapon(name:String, baseDmg:int, strRatio:Number, dexRatio:Number) 
 		{
 			this.dexRatio = dexRatio;
 			this.strRatio = strRatio;
 			this.baseDmg = baseDmg;
-			
 		}
 		
 		public function getDmg(unit:Unit):int
