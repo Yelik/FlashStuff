@@ -35,8 +35,27 @@ package
 					map.push(1);
 				}
 			}
+			
+			draw();
 		}
-	
+		
+		private function draw():void
+		{
+			
+		}
+		
+		private function drawTile(type:int):Sprite
+		{
+			var image:Sprite = new Sprite, width:int = 16, height:int = 16;
+			switch (type)
+			{
+				case 1: 
+					image.graphics.lineStyle(1);
+					image.graphics.beginFill(0x784800);
+					image.graphics.drawRect(0, 0, width, height)
+			}
+			return image;
+		}
 	}
 
 }
