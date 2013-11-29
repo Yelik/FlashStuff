@@ -9,7 +9,9 @@ package
 	 */
 	public class Main extends Sprite
 	{
-		private var map:Array
+		private var map:Array;
+		private var mapWidth:int;
+		private var mapHeight:int;
 		
 		public function Main():void
 		{
@@ -23,18 +25,22 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
-			var width:int = 10;
-			var height:int = 10;
-			
+			mapWidth = 10;
+			mapHeight = 10;
+		
 			map = new Array
 			
-			for (var x:int = 0; x < width; x++)
+			for (var x:int = 0; x < mapWidth; x++)
 			{
-				for (var y:int = 0; y < height; y++)
+				for (var y:int = 0; y < mapHeight; y++)
 				{
 					map.push(1);
 				}
 			}
+			draw();
+			
+			removeChild(this.getChildAt(0));
+			setTile(4, 5, 0);
 			draw();
 		}
 		
@@ -43,15 +49,15 @@ package
 			for (var i:int = 0; i < map.length; i++)
 			{
 				var image:Sprite = drawTile(map[i]);
-				image.x = i % Math.sqrt(map.length) * 16;
-				image.y = Math.floor(i / Math.sqrt(map.length)) * 16;
+				image.x = i % mapHeight * 16;
+				image.y = Math.floor(i / mapHeight) * 16;
 				addChild(image);
 			}
 		}
 		
 		private function setTile(x:int, y:int, type:int):void
 		{
-			
+			map[y * mapHeight + x] = type;
 		}
 		
 		private function drawTile(type:int):Sprite
