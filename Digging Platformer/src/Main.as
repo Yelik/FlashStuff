@@ -35,11 +35,21 @@ package
 					map.push(1);
 				}
 			}
-			
 			draw();
 		}
 		
 		private function draw():void
+		{
+			for (var i:int = 0; i < map.length; i++)
+			{
+				var image:Sprite = drawTile(map[i]);
+				image.x = i % Math.sqrt(map.length) * 16;
+				image.y = Math.floor(i / Math.sqrt(map.length)) * 16;
+				addChild(image);
+			}
+		}
+		
+		private function setTile(x:int, y:int, type:int):void
 		{
 			
 		}
