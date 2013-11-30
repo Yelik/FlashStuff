@@ -46,13 +46,15 @@ package
 		
 		private function draw():void
 		{
+			var images:Sprite = new Sprite;
 			for (var i:int = 0; i < map.length; i++)
 			{
 				var image:Sprite = drawTile(map[i]);
-				image.x = i % mapHeight * 16;
-				image.y = Math.floor(i / mapHeight) * 16;
-				addChild(image);
+				image.x = i % mapHeight * 32;
+				image.y = Math.floor(i / mapHeight) * 32;
+				images.addChild(image);
 			}
+			addChild(images);
 		}
 		
 		private function setTile(x:int, y:int, type:int):void
@@ -62,7 +64,7 @@ package
 		
 		private function drawTile(type:int):Sprite
 		{
-			var image:Sprite = new Sprite, width:int = 16, height:int = 16;
+			var image:Sprite = new Sprite, width:int = 32, height:int = 32;
 			switch (type)
 			{
 				case 1: 
