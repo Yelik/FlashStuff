@@ -34,12 +34,13 @@ package
 			metaBlock.push(new Block(700, 200, 100, 25));
 			metaBlock.push(new Block(50, 300, 100, 25));
 			
+			player = new Being(this, 100, 400);
+			
+						
 			for each (var s:Shape in metaBlock)
 			{
 				addChild(s);
 			}
-			
-			player = new Being(this, 100, 400);
 		}
 	}
 }
