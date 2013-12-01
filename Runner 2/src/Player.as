@@ -15,7 +15,10 @@ package
 		
 		public function Player(main:Main, x:int, y:int)
 		{
-			super(main, x, y, 16);
+			var size:int = 16;
+			var gravity:Number = 0.5;
+			
+			super(main, x, y, size, gravity);
 			
 			main.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			main.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
