@@ -9,7 +9,7 @@ package
 	 */
 	public class Block extends Shape
 	{
-		private var main:Main;
+		protected var main:Main;
 		
 		public function Block(main:Main, x:int, y:int, width:int, height:int)
 		{

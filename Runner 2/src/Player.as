@@ -1,5 +1,6 @@
 package
 {
+	import flash.events.Event;
 	import flash.events.KeyboardEvent;
 	import flash.ui.Keyboard;
 	
@@ -9,32 +10,42 @@ package
 	 */
 	public class Player extends Being
 	{
-		private var leftKey:Boolean = false;
-		private var rightKey:Boolean = false;
-		private var upKey:Boolean = false;
+		protected var leftKey:Boolean = false;
+		protected var rightKey:Boolean = false;
+		protected var upKey:Boolean = false;
 		
 		public function Player(main:Main, x:int, y:int)
 		{
 			var size:int = 16;
 			var gravity:Number = 0.5;
+			var moveSpeed:Number = 1;
 			
-			super(main, x, y, size, gravity);
+			super(main, x, y, size, gravity, size, size, moveSpeed);
 			
 			main.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			main.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 		}
 		
-		private function keyDown(e:KeyboardEvent):void
+		override protected function enterFrame(e:Event):void
+		{
+			if (leftKey)
+				xSpeed += -speed;
+			else if (rightKey)
+				xSpeed += speed;
+			super.enterFrame(e);
+		}
+		
+		protected function keyDown(e:KeyboardEvent):void
 		{
 			setKeys(e, true);
 		}
 		
-		private function keyUp(e:KeyboardEvent):void
+		protected function keyUp(e:KeyboardEvent):void
 		{
 			setKeys(e, false);
 		}
 		
-		private function setKeys(e:KeyboardEvent, value:Boolean):void
+		protected function setKeys(e:KeyboardEvent, value:Boolean):void
 		{
 			switch (e.keyCode)
 			{

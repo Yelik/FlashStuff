@@ -12,17 +12,19 @@ package
 	 */
 	public class Being extends Sprite
 	{
-		private var main:Main;
-		private var image:Sprite;
-		private var size:int;
-		private var xSpeed:Number = 0;
-		private var ySpeed:Number = 0;
-		private var gravity:Number;
-		private var maxXSpeed:int;
-		private var maxYSpeed:int;
+		protected var main:Main;
+		protected var image:Sprite;
+		protected var size:int;
+		protected var xSpeed:Number = 0;
+		protected var ySpeed:Number = 0;
+		protected var gravity:Number;
+		protected var maxXSpeed:Number;
+		protected var maxYSpeed:Number;
+		protected var speed:Number;
 		
-		public function Being(main:Main, x:int, y:int, size:int, gravity:Number, maxXSpeed:int, maxYSpeed:int)
+		public function Being(main:Main, x:int, y:int, size:int, gravity:Number, maxXSpeed:Number, maxYSpeed:Number, speed:Number)
 		{
+			this.speed = speed;
 			this.maxYSpeed = maxYSpeed;
 			this.maxXSpeed = maxXSpeed;
 			this.gravity = gravity;
@@ -38,15 +40,18 @@ package
 			addEventListener(Event.ENTER_FRAME, enterFrame);
 		}
 		
-		private function enterFrame(e:Event):void
+		protected function enterFrame(e:Event):void
 		{
 			ySpeed += gravity;
 			
-			y += ySpeed;
+			xSpeed = limitSpeed(xSpeed, maxXSpeed);
+			ySpeed = limitSpeed(ySpeed, maxYSpeed);
+			
 			x += xSpeed;
+			y += ySpeed;
 		}
 		
-		private function limitSpeed(speed:Number, maxSpeed:int):int
+		protected function limitSpeed(speed:Number, maxSpeed:int):Number
 		{
 			if (speed > maxSpeed)
 			{
@@ -54,8 +59,9 @@ package
 			}
 			else if (speed < -maxSpeed)
 			{
-				
+				speed = -maxSpeed;
 			}
 			return speed;
 		}
 	}
+}

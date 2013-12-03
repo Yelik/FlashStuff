@@ -36,7 +36,6 @@ package
 			
 			player = new Being(this, 100, 400);
 			
-						
 			for each (var s:Shape in metaBlock)
 			{
 				addChild(s);
