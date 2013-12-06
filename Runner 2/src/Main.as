@@ -25,13 +25,16 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			blocks = new Vector.<Block>
-			new Block(this, 50, 500, 200, 25);
-			new Block(this, 350, 400, 200, 25);
-			new Block(this, 600, 300, 100, 25);
-			new Block(this, 700, 200, 100, 25);
-			new Block(this, 50, 300, 100, 25);
+			new Block(this, 50, 550, 700, 50);
+			new Block(this, 0, 0, 50, 600);
+			new Block(this, 750, 0, 50, 600);
+			new Block(this, 50, 0, 700, 50);
+			new Block(this, 50, 450, 50, 50);
+			new Block(this, 50, 350, 50, 50);
+			new Block(this, 50, 250, 50, 50);
+			new Block(this, 50, 150, 50, 50);
 			
-			player = new Player(this, 0, 0);
+			player = new Player(this, 200, 200);
 			addChild(player);
 		}
 	

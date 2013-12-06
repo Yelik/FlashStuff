@@ -10,6 +10,8 @@ package
 	 */
 	public class Player extends Being
 	{
+		protected var jumpSpeed:Number;
+		protected var canJump:Boolean;
 		protected var leftKey:Boolean = false;
 		protected var rightKey:Boolean = false;
 		protected var upKey:Boolean = false;
@@ -18,9 +20,12 @@ package
 		{
 			var size:int = 16;
 			var gravity:Number = 0.5;
-			var moveSpeed:Number = 1;
+			var moveSpeed:Number = 2;
+			var friction:Number = 0.9;
+			jumpSpeed = 10;
+			canJump = true;
 			
-			super(main, x, y, size, gravity, size, size, moveSpeed);
+			super(main, x, y, size, gravity, size, size, moveSpeed, friction);
 			
 			main.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			main.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
@@ -32,7 +37,26 @@ package
 				xSpeed += -speed;
 			else if (rightKey)
 				xSpeed += speed;
+			if (upKey)
+			{
+				if (canJump)
+				{
+					if (ySpeed > 0)
+					{
+						ySpeed = 0;
+					}
+					ySpeed -= jumpSpeed;
+					canJump = false;
+				}
+			}
 			super.enterFrame(e);
+		}
+		
+		override protected function collision(block:Block):void
+		{
+			if (block.y > y)
+				canJump = true;
+			super.collision(block);
 		}
 		
 		protected function keyDown(e:KeyboardEvent):void
