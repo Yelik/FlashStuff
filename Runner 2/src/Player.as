@@ -22,7 +22,7 @@ package
 			var gravity:Number = 0.5;
 			var moveSpeed:Number = 2;
 			var friction:Number = 0.9;
-			jumpSpeed = 10;
+			jumpSpeed = 15;
 			canJump = true;
 			
 			super(main, x, y, size, gravity, size, size, moveSpeed, friction);
@@ -54,7 +54,7 @@ package
 		
 		override protected function collision(block:Block):void
 		{
-			if (block.y > y)
+			if (block.y > y && block.x < x + width && block.x > x - block.width)
 				canJump = true;
 			super.collision(block);
 		}

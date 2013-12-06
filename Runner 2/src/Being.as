@@ -74,7 +74,7 @@ package
 		
 		protected function collision(block:Block):void
 		{
-			if (block.y > y && (block.x )
+			if (block.y > y && block.x < x + width && block.x > x - block.width)
 			{
 				if (ySpeed > 0)
 				{
@@ -82,7 +82,7 @@ package
 				}
 				y = block.y - height;
 			}
-			else if (block.y < y)
+			else if (block.y < y && block.x < x + width && block.x > x - block.width)
 			{
 				if (ySpeed < 0)
 				{
@@ -90,7 +90,7 @@ package
 				}
 				y = block.y + block.height;
 			}
-			else if (block.x < x)
+			else if (block.x < x && block.y < y + height && block.y > y - block.height)
 			{
 				if (xSpeed < 0)
 				{
@@ -98,7 +98,7 @@ package
 				}
 				x = block.x + block.width;
 			}
-			else if (block.x > x)
+			else if (block.x > x && block.y < y + height && block.y > y - block.height)
 			{
 				if (xSpeed > 0)
 				{
@@ -106,7 +106,6 @@ package
 				}
 				x = block.x - width;
 			}
-		
 		}
 		
 		protected function limitSpeed(speed:Number, maxSpeed:int):Number
