@@ -55,7 +55,9 @@ package
 		override protected function collision(block:Block):void
 		{
 			if (block.y > y && block.x < x + width && block.x > x - block.width)
+			{
 				canJump = true;
+			}
 			super.collision(block);
 		}
 		

@@ -23,6 +23,8 @@ package
 		protected var maxXSpeed:Number;
 		protected var maxYSpeed:Number;
 		protected var speed:Number;
+		public var mapX:Number;
+		public var mapY:Number;
 		
 		public function Being(main:Main, x:int, y:int, size:int, gravity:Number, maxXSpeed:Number, maxYSpeed:Number, speed:Number, friction:Number)
 		{
@@ -32,12 +34,13 @@ package
 			this.maxXSpeed = maxXSpeed;
 			this.gravity = gravity;
 			this.size = size;
-			this.y = y;
-			this.x = x;
+			this.mapY = y;
+			this.mapX = x;
 			this.main = main;
 			this.image = new Sprite;
 			this.projBeing = new Sprite;
 			addChild(image);
+
 			image.graphics.lineStyle(1);
 			image.graphics.drawRect(0, 0, size, size);
 			projBeing.graphics.lineStyle(1);
@@ -48,11 +51,10 @@ package
 		
 		protected function enterFrame(e:Event):void
 		{
-			projBeing.x = x;
-			projBeing.y = y;
+			projBeing.x = mapX;
+			projBeing.y = mapY;
 			
 			ySpeed += gravity;
-			
 			xSpeed *= friction;
 			
 			projBeing.x += limitSpeed(xSpeed, maxXSpeed);
@@ -68,8 +70,10 @@ package
 			
 			xSpeed = limitSpeed(xSpeed, maxXSpeed);
 			ySpeed = limitSpeed(ySpeed, maxYSpeed);
-			x += xSpeed;
-			y += ySpeed;
+			mapX += xSpeed;
+			mapY += ySpeed;
+			this.x = mapX;
+			this.y = mapY;
 		}
 		
 		protected function collision(block:Block):void
@@ -80,15 +84,15 @@ package
 				{
 					ySpeed = 0;
 				}
-				y = block.y - height;
+				mapY = block.y - height;
 			}
-			else if (block.y < y && block.x < x && block.x > x - block.width + width)
+			else if (block.y < y && block.x < x + width && block.x + block.width > x)
 			{
 				if (ySpeed < 0)
 				{
 					ySpeed = 0;
 				}
-				y = block.y + block.height;
+				mapY = block.y + block.height;
 			}
 			else if (block.x < x)
 			{
@@ -96,7 +100,7 @@ package
 				{
 					xSpeed = 0;
 				}
-				x = block.x + block.width;
+				mapX = block.x + block.width;
 			}
 			else if (block.x > x)
 			{
@@ -104,7 +108,7 @@ package
 				{
 					xSpeed = 0;
 				}
-				x = block.x - width;
+				mapX = block.x - width;
 			}
 		}
 		

@@ -23,7 +23,6 @@ package
 		protected function init(e:Event = null):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			
 			blocks = new Vector.<Block>
 			new Block(this, 50, 550, 700, 50);
 			new Block(this, 0, 0, 50, 600);
