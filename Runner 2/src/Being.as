@@ -40,10 +40,12 @@ package
 			this.image = new Sprite;
 			this.projBeing = new Sprite;
 			addChild(image);
-
+			main.addChild(projBeing);
+			
 			image.graphics.lineStyle(1);
 			image.graphics.drawRect(0, 0, size, size);
 			projBeing.graphics.lineStyle(1);
+			projBeing.graphics.beginFill(0xFF00FF);
 			projBeing.graphics.drawRect(0, 0, size, size);
 			
 			addEventListener(Event.ENTER_FRAME, enterFrame);
@@ -51,8 +53,9 @@ package
 		
 		protected function enterFrame(e:Event):void
 		{
-			projBeing.x = mapX;
-			projBeing.y = mapY;
+			trace(mapX, mapY);
+			projBeing.x = x;
+			projBeing.y = y;
 			
 			ySpeed += gravity;
 			xSpeed *= friction;
@@ -72,38 +75,40 @@ package
 			ySpeed = limitSpeed(ySpeed, maxYSpeed);
 			mapX += xSpeed;
 			mapY += ySpeed;
-			this.x = mapX;
-			this.y = mapY;
 		}
 		
 		protected function collision(block:Block):void
 		{
-			if (block.y > y && block.x < x + width && block.x > x - block.width)
+			if (block.y > y)
 			{
+				trace("collsion down");
 				if (ySpeed > 0)
 				{
 					ySpeed = 0;
 				}
-				mapY = block.y - height;
+				mapY = block.mapY - height;
 			}
-			else if (block.y < y && block.x < x + width && block.x + block.width > x)
+			if (block.y < y)
 			{
+				trace("collsion up");
 				if (ySpeed < 0)
 				{
 					ySpeed = 0;
 				}
 				mapY = block.y + block.height;
 			}
-			else if (block.x < x)
+			if (block.x < x)
 			{
+				trace("collsion left");
 				if (xSpeed < 0)
 				{
 					xSpeed = 0;
 				}
 				mapX = block.x + block.width;
 			}
-			else if (block.x > x)
+			if (block.x > x)
 			{
+				trace("collsion right");
 				if (xSpeed > 0)
 				{
 					xSpeed = 0;

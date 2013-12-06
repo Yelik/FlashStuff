@@ -50,6 +50,8 @@ package
 				}
 			}
 			super.enterFrame(e);
+			x = main.stage.stageWidth / 2;
+			y = main.stage.stageHeight / 2;
 		}
 		
 		override protected function collision(block:Block):void

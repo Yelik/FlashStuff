@@ -29,8 +29,8 @@ package
 		
 		private function enterFrame(e:Event):void
 		{
-			this.x = mapX;
-			this.y = mapY;
+			this.x = mapX - main.player.mapX;
+			this.y = mapY - main.player.mapY;
 		}
 	}
 }
