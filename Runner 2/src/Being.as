@@ -82,7 +82,7 @@ package
 				}
 				y = block.y - height;
 			}
-			else if (block.y < y && block.x < x + width && block.x > x - block.width)
+			else if (block.y < y && block.x < x && block.x > x - block.width + width)
 			{
 				if (ySpeed < 0)
 				{
@@ -90,7 +90,7 @@ package
 				}
 				y = block.y + block.height;
 			}
-			else if (block.x < x && block.y < y + height && block.y > y - block.height)
+			else if (block.x < x)
 			{
 				if (xSpeed < 0)
 				{
@@ -98,7 +98,7 @@ package
 				}
 				x = block.x + block.width;
 			}
-			else if (block.x > x && block.y < y + height && block.y > y - block.height)
+			else if (block.x > x)
 			{
 				if (xSpeed > 0)
 				{
