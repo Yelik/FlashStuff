@@ -79,40 +79,25 @@ package
 		
 		protected function collision(block:Block):void
 		{
-			if (block.y > y)
+			if (ySpeed > 0)
 			{
-				trace("collsion down");
-				if (ySpeed > 0)
-				{
-					ySpeed = 0;
-				}
+				ySpeed = 0;
 				mapY = block.mapY - height;
 			}
-			if (block.y < y)
+			if (ySpeed < 0)
 			{
-				trace("collsion up");
-				if (ySpeed < 0)
-				{
-					ySpeed = 0;
-				}
+				ySpeed = 0;
 				mapY = block.y + block.height;
 			}
-			if (block.x < x)
+			
+			if (xSpeed < 0)
 			{
-				trace("collsion left");
-				if (xSpeed < 0)
-				{
-					xSpeed = 0;
-				}
+				xSpeed = 0;
 				mapX = block.x + block.width;
 			}
-			if (block.x > x)
+			if (xSpeed > 0)
 			{
-				trace("collsion right");
-				if (xSpeed > 0)
-				{
-					xSpeed = 0;
-				}
+				xSpeed = 0;
 				mapX = block.x - width;
 			}
 		}
