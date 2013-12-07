@@ -22,6 +22,7 @@ package
 			graphics.drawRect(0, 0, width, height);
 			addEventListener(Event.ENTER_FRAME, enterFrame);
 			main.addChild(this);
+			main.walls.push(this);
 			enterFrame();
 		}
 		

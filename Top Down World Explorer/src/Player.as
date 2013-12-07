@@ -20,6 +20,8 @@ package
 		public var image:Sprite;
 		public var xSpeed:Number;
 		public var speed:Number;
+		public var ySpeed:Number;
+		public var downKey:Boolean;
 		
 		public function Player(main:Main, x:int, y:int)
 		{
@@ -34,6 +36,7 @@ package
 			main.addChild(image);
 			xSpeed = 0;
 			ySpeed = 0;
+			speed = 5;
 			main.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			main.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 			image.addEventListener(Event.ENTER_FRAME, image_enterFrame);
@@ -41,10 +44,19 @@ package
 		
 		private function image_enterFrame(e:Event):void
 		{
+			xSpeed = 0;
+			ySpeed = 0;
 			if (leftKey)
-				xSpeed += -speed;
+				xSpeed = -speed;
 			else if (rightKey)
-				xSpeed += speed;
+				xSpeed = speed;
+			if (upKey)
+				ySpeed = -speed;
+			else if (downKey)
+				ySpeed = speed;
+			x += xSpeed;
+			y += ySpeed;
+			
 		}
 		
 		protected function keyDown(e:KeyboardEvent):void
@@ -71,6 +83,10 @@ package
 				
 				case Keyboard.UP: 
 					upKey = value;
+					break;
+				
+				case Keyboard.DOWN: 
+					downKey = value;
 					break;
 				
 				default: 

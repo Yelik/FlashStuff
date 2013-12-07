@@ -10,6 +10,7 @@ package
 	public class Main extends Sprite
 	{
 		public var player:Player;
+		public var walls:Vector.<Wall>;
 		
 		public function Main():void
 		{
@@ -23,6 +24,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
+			walls = new Vector.<Wall>;
 			player = new Player(this, 100, 100);
 			
 			new Wall(this, 0, 0, 50, 50);
