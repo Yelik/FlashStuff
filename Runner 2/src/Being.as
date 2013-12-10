@@ -25,6 +25,7 @@ package
 		protected var speed:Number;
 		public var mapX:Number;
 		public var mapY:Number;
+		protected var onGround:Boolean;
 		
 		public function Being(main:Main, x:int, y:int, size:int, gravity:Number, maxXSpeed:Number, maxYSpeed:Number, speed:Number, friction:Number)
 		{
@@ -58,16 +59,20 @@ package
 			projBeing.y = y;
 			
 			ySpeed += gravity;
-			xSpeed *= friction;
+			if (onGround)
+			{
+				xSpeed *= friction;
+			}
 			
 			projBeing.x += limitSpeed(xSpeed, maxXSpeed);
 			projBeing.y += limitSpeed(ySpeed, maxYSpeed);
-			
+			onGround = false;
 			for each (var block:Block in main.blocks)
 			{
 				if (this.projBeing.hitTestObject(block))
 				{
 					collision(block);
+					onGround = true;
 				}
 			}
 			

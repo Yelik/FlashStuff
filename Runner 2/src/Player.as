@@ -20,12 +20,13 @@ package
 		{
 			var size:int = 16;
 			var gravity:Number = 0.5;
-			var moveSpeed:Number = 2;
-			var friction:Number = 0.9;
+			var moveSpeed:Number = 1;
+			var friction:Number = 0.85;
+			var maxXSpeed:int = 8;
 			jumpSpeed = 15;
 			canJump = true;
 			
-			super(main, x, y, size, gravity, size, size, moveSpeed, friction);
+			super(main, x, y, size, gravity, maxXSpeed, size, moveSpeed, friction);
 			
 			main.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			main.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
