@@ -40,7 +40,8 @@ package
 			this.image = new Sprite;
 			this.projBeing = new Sprite;
 			addChild(image);
-			main.addChild(projBeing);
+			if (main.debug)
+				main.addChild(projBeing);
 			
 			image.graphics.lineStyle(1);
 			image.graphics.drawRect(0, 0, size, size);
@@ -53,7 +54,6 @@ package
 		
 		protected function enterFrame(e:Event):void
 		{
-			trace(mapX, mapY);
 			projBeing.x = x;
 			projBeing.y = y;
 			
@@ -79,26 +79,37 @@ package
 		
 		protected function collision(block:Block):void
 		{
-			if (ySpeed > 0)
+			if (mapY < block.mapY && mapX < block.mapX + block.width && mapX > block.mapX - width) // down
 			{
-				ySpeed = 0;
 				mapY = block.mapY - height;
+				if (ySpeed > 0)
+				{
+					ySpeed = 0;
+				}
 			}
-			if (ySpeed < 0)
+			else if (mapX > block.mapX && mapY < block.mapY + block.height && mapY > block.mapY - height) //left
 			{
-				ySpeed = 0;
-				mapY = block.y + block.height;
+				mapX = block.mapX + block.width;
+				if (xSpeed < 0)
+				{
+					xSpeed = 0;
+				}
 			}
-			
-			if (xSpeed < 0)
+			else if (mapX < block.mapX + width && mapY < block.mapY + block.height && mapY > block.mapY - height) //right
 			{
-				xSpeed = 0;
-				mapX = block.x + block.width;
+				mapX = block.mapX - width;
+				if (xSpeed > 0)
+				{
+					xSpeed = 0;
+				}
 			}
-			if (xSpeed > 0)
+			else if (mapY > block.mapY && mapX < block.mapX + block.width && mapX > block.mapX - width) //up
 			{
-				xSpeed = 0;
-				mapX = block.x - width;
+				mapY = block.mapY + block.height;
+				if (ySpeed < 0)
+				{
+					ySpeed = 0;
+				}
 			}
 		}
 		
