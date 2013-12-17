@@ -19,9 +19,8 @@ package
 		private function init(e:Event = null):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
-			
+			Tile.addType(this, "road");
+			trace(Tile.types[0].getName());
 		}
-		
 	}
-	
 }
