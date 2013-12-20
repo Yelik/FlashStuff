@@ -35,6 +35,14 @@ package
 			{
 				y = 0;
 			}
+			if (x > main.stage.stageWidth)
+			{
+				x = 0;
+			}
+			else if (x < 0)
+			{
+				x = main.stage.stageWidth;
+			}
 		}
 	}
 }

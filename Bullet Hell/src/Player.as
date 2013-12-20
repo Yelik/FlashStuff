@@ -81,7 +81,7 @@ package
 		
 		private function die():void
 		{
-			System.pause();
+			
 		}
 		
 		private function keyDown(e:KeyboardEvent):void

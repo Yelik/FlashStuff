@@ -36,8 +36,7 @@ package
 		
 		private function enterFrame(e:Event):void
 		{
-			if (Math.floor(Math.random() * 10) == 0)
-				new Bullet(this, mouseX, 0, 0, 5, 4, 16);
+			new Bullet(this, mouseX, 0, Math.random() * 2 - 1, mouseY / 100, 4, 16);
 		}
 	
 	}
