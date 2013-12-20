@@ -36,7 +36,7 @@ package
 			main.addChild(image);
 			xSpeed = 0;
 			ySpeed = 0;
-			speed = 5;
+			speed = 10;
 			main.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			main.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
 			image.addEventListener(Event.ENTER_FRAME, image_enterFrame);
