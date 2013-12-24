@@ -13,6 +13,7 @@ package
 		private var frameNumber:int;
 		public var player:Player;
 		public var bullets:Vector.<Bullet>;
+		private var i:int = 0;
 		
 		public function Main():void
 		{
@@ -26,6 +27,7 @@ package
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
+			addChild(new FPSCounter(0, 0, 0));
 			Mouse.hide();
 			frameNumber = 0;
 			bullets = new Vector.<Bullet>
@@ -36,9 +38,14 @@ package
 		
 		private function enterFrame(e:Event):void
 		{
-			new Bullet(this, mouseX, 0, Math.random() * 2 - 1, mouseY / 100, 4, 16);
+			i++
+			if (i % 10 == 0)
+			{
+				for (var i:int = 0; i < this.i / 100; i++)
+				{
+					new Bullet(this, mouseX, 0, Math.random() * 2 - 1, Math.random() * 10, 4, 16);
+				}
+			}
 		}
-	
 	}
-
 }

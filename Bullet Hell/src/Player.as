@@ -39,31 +39,6 @@ package
 		
 		private function enterFrame(e:Event):void
 		{
-			/*if (leftKey)
-			{
-				xSpeed = -speed;
-			}
-			else if (rightKey)
-			{
-				xSpeed = speed;
-			}
-			else
-			{
-				xSpeed = 0;
-			}
-			if (upKey)
-			{
-				ySpeed = -speed;
-			}
-			else if (downKey)
-			{
-				ySpeed = speed;
-			}
-			else
-			{
-				ySpeed = 0;
-			}*/
-			
 			for each (var bullet:Bullet in main.bullets)
 			{
 				if (hitTestObject(bullet))
@@ -71,17 +46,13 @@ package
 					die();
 				}
 			}
-			/*
-			x += xSpeed;
-			y += ySpeed;
-			*/
 			x = main.mouseX;
 			y = main.mouseY;
 		}
 		
 		private function die():void
 		{
-			
+			System.exit(0);
 		}
 		
 		private function keyDown(e:KeyboardEvent):void

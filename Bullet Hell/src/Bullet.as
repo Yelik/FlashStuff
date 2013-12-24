@@ -24,25 +24,40 @@ package
 			graphics.drawRect(0, 0, width, height);
 			main.addChild(this);
 			main.bullets.push(this);
-			addEventListener(Event.ENTER_FRAME, main_enterFrame);
+			addEventListener(Event.ENTER_FRAME, enterFrame);
 		}
 		
-		private function main_enterFrame(e:Event):void
+		private function enterFrame(e:Event):void
 		{
+			
 			x += xSpeed;
 			y += ySpeed;
 			if (y > main.stage.stageHeight)
 			{
-				y = 0;
+				die();
 			}
 			if (x > main.stage.stageWidth)
 			{
-				x = 0;
+				die();
 			}
 			else if (x < 0)
 			{
-				x = main.stage.stageWidth;
+				die();
 			}
+		}
+		
+		private function die():void
+		{
+			try
+			{
+				main.removeChild(this);
+			}
+			catch (err:Error)
+			{
+				
+			}
+			removeEventListener(Event.ENTER_FRAME, enterFrame);
+			main.bullets.splice(main.bullets.indexOf(this), 1);
 		}
 	}
 }
