@@ -11,7 +11,9 @@ package
 	{
 		private var map:Array;
 		private var mapWidth:int;
-		private var mapHeight:int;
+		private var mapHeight:int
+		private var images:Sprite;
+		;
 		
 		public function Main():void
 		{
@@ -27,7 +29,7 @@ package
 			
 			mapWidth = 10;
 			mapHeight = 10;
-		
+			
 			map = new Array
 			
 			for (var x:int = 0; x < mapWidth; x++)
@@ -39,14 +41,13 @@ package
 			}
 			draw();
 			
-			removeChild(this.getChildAt(0));
 			setTile(4, 5, 0);
-			draw();
+			redraw();
 		}
 		
 		private function draw():void
 		{
-			var images:Sprite = new Sprite;
+			images = new Sprite;
 			for (var i:int = 0; i < map.length; i++)
 			{
 				var image:Sprite = drawTile(map[i]);
@@ -55,6 +56,17 @@ package
 				images.addChild(image);
 			}
 			addChild(images);
+		}
+		
+		private function undraw():void
+		{
+			removeChild(images);
+		}
+		
+		private function redraw():void
+		{
+			undraw();
+			draw();
 		}
 		
 		private function setTile(x:int, y:int, type:int):void
